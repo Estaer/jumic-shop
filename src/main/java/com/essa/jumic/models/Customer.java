@@ -1,39 +1,58 @@
 package com.essa.jumic.models;
 
-import com.github.javafaker.Faker;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Customer {
 
-    public static void main(String[] args) {
-        generateCustomerDetails();
+    int customerId;
+    String name;
+    String email;
+    int phoneNumber;
+
+    public Customer(int customerId, String name, String email, int phoneNumber) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
 
-    private static void generateCustomerDetails(){
-        Map<String, Map<String, String>> customers = new HashMap<>();
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
-        int i = 20;
-        while (i > 0) {
-            Faker faker = new Faker();
-            int customerId = faker.idNumber().hashCode();
-            String firstName = faker.name().firstName();
-            String lastName = faker.name().lastName();
-            String name = (firstName +" "+ lastName);
-            String email = (firstName.toLowerCase() + lastName.toLowerCase()+ "@gmail.com");
-            int phoneNumber = faker.phoneNumber().hashCode();
+    public String getName() {
+        return name;
+    }
 
-            Map<String, String> customer = new HashMap<>();
-            customer.put("id", String.valueOf(customerId));
-            customer.put("name",name);
-            customer.put("email",email);
-            customer.put("phonenumber", String.valueOf(phoneNumber));
+    public void setName(String name) {
+        this.name = name;
+    }
 
-            customers.put(customer.get("id"), customer);
-//            System.out.println(customer);
-            i--;
-        }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
     }
 }
