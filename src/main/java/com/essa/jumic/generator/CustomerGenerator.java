@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerGenerator {
-    private static List<Customer> customers ;
+    static List<Customer> customers ;
     static {
         customers = new ArrayList<>();
         generateCustomerDetails();
@@ -19,7 +19,6 @@ public class CustomerGenerator {
 
 
     private static void generateCustomerDetails(){
-
 
         int i = 20;
         while (i > 0) {
