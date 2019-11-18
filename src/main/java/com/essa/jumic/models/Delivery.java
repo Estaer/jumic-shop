@@ -1,19 +1,21 @@
 package com.essa.jumic.models;
 
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 
 public class Delivery {
 
     int deliveryId;
     String location;
-    Date date;
+    ChronoLocalDate deliveryDate;
     double price;
-    Date preferredDay;
+    String preferredDay;
 
-    public Delivery(int deliveryId, String location, Date date, double price, Date preferredDay) {
+    public Delivery(int deliveryId, String location, ChronoLocalDate deliveryDate, double price, String preferredDay) {
         this.deliveryId = deliveryId;
         this.location = location;
-        this.date = date;
+        this.deliveryDate = deliveryDate;
         this.price = price;
         this.preferredDay = preferredDay;
     }
@@ -34,12 +36,12 @@ public class Delivery {
         this.location = location;
     }
 
-    public Date getDate() {
-        return date;
+    public ChronoLocalDate getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDeliveryDate(ChronoLocalDate deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
     public double getPrice() {
@@ -50,11 +52,11 @@ public class Delivery {
         this.price = price;
     }
 
-    public Date getPreferredDay() {
+    public String getPreferredDay() {
         return preferredDay;
     }
 
-    public void setPreferredDay(Date preferredDay) {
+    public void setPreferredDay(String preferredDay) {
         this.preferredDay = preferredDay;
     }
 
@@ -63,7 +65,7 @@ public class Delivery {
         return "Delivery{" +
                 "deliveryId=" + deliveryId +
                 ", location='" + location + '\'' +
-                ", date=" + date +
+                ", date=" + deliveryDate +
                 ", price=" + price +
                 ", preferredDay=" + preferredDay +
                 '}';
